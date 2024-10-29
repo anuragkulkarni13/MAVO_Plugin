@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>example</groupId>
+  <artifactId>example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <properties>
+    <spring.boot.dependencies.version>2.4.3</spring.boot.dependencies.version>
+    <spring.cloud.dependencies.version>2021.0.6</spring.cloud.dependencies.version>
+    <open-saml-version>4.2.0</open-saml-version>
+  </properties>
+  <dependencyManagement />
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.8.0</version>
+        <executions>
+          <execution>
+            <id>write-dependency-tree</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>tree</goal>
+            </goals>
+            <configuration>
+              <outputFile>D:\Anurag\MAVO Workspace\example\tempPOMForDirectDependencies\dependency-tree.json</outputFile>
+              <outputType>json</outputType>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>10.0.4</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <formats>
+            <format>JSON</format>
+          </formats>
+          <outputDirectory>D:\Anurag\MAVO Workspace\example\tempPOMForDirectDependencies</outputDirectory>
+          <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+          <golangDepEnabled>false</golangDepEnabled>
+          <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.17.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
